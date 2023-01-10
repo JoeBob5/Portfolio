@@ -1,0 +1,118 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0; 
+  padding: 80px 10px 0; 
+  width: 100%; 
+}
+
+p, h1, h2{
+  margin: 0; 
+}
+
+/* Navbar */ 
+
+.navbar{
+  display: flex; 
+  align-items: center;
+
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  height: 80px; 
+
+  background-color: gray;
+
+  padding: 0 10px 0; 
+}
+
+.blog-logo{
+  font-size: 32px; 
+}
+
+/* Blog */
+
+.blog-button-box{
+  margin: 20px 0; 
+}
+
+.blog-preview{
+  position: relative; 
+
+  background-color: rgba(200, 200, 200, 0.7);
+
+  width: 50%; 
+  margin: 20px 0; 
+  padding: 10px; 
+
+  border-radius: 4px; 
+}
+
+.blog-title{
+  margin-bottom: 10px; 
+}
+
+.blog-delete-button{
+  position: absolute;
+  top: 5px;
+  right: 55px; 
+}
+
+.blog-edit-button{
+  position: absolute; 
+  top: 5px; 
+  right: 5px; 
+}
+
+/* Create Blog Overlay */ 
+
+.create-new-blog-overlay{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  top: 0; 
+  bottom: 0; 
+
+  background-color: rgba(182, 182, 182, .7);
+
+  z-index: 999; 
+}
+
+.create-new-blog-form{
+  width: 400px; 
+
+  background-color: rgb(182, 182, 182);
+}
+
+.overlay-close-button-container{
+  display: flex; 
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.overlay-close-button{
+  margin: 5px 5px 0 0; 
+}
+
+.new-blog-fieldset{
+  display: flex; 
+  flex-direction: column;
+
+  border: none; 
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.new-blog-body{
+  resize: none;
+  height: 200px; 
+}

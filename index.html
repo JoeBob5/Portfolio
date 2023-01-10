@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="simple blog using fundamental front-end dev skills">
+    <meta name="author" content="DD">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <h1 class="blog-logo">Blog Logo</h1>
+      </nav>
+    </header>
+    <main>
+      <div class="blog-button-box">
+        <button class="create-new-blog-button">Create</button>
+      </div>
+      <div class="create-new-blog-overlay hidden">
+        <form class="create-new-blog-form">
+          <div class="overlay-close-button-container">
+            <button type="button" class="overlay-close-button">X</button>
+          </div>
+          <fieldset class="new-blog-fieldset">
+            <label for="new-blog-title" class="new-blog-title-label">Title: </label>
+            <input class="new-blog-title" id="new-blog-title" type="text" /> 
+            <label for="new-blog-author" class="new-blog-author-label">Author: </label>
+            <input class="new-blog-author" id="new-blog-author" type="text" /> 
+            <label for="new-blog-body" class="new-blog-body-label">Body: </label>
+            <textarea class="new-blog-body" id="new-blog-body" type="text"></textarea> 
+          </fieldset>
+          <button class="new-blog-submit-button" type="button">Submit</button>
+        </form>
+      </div>
+      <div class="blog">
+        <!-- see function createBlog() in app.js -->
+      </div>
+    </main>
+  </body>
+</html>
