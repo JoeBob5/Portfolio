@@ -121,7 +121,6 @@ function clearBlogForm(){
 
 function displayBlogs(){
   clearBlogOutput(); 
-  toggleCreateButton(); 
   blogData.map(blog => createBlog(blog)); 
 }
 
@@ -135,7 +134,7 @@ function toggleCreateButton(){
 
 function readBlog(id){
   toggleCreateButton(); 
-  
+
   const readEl = document.createElement("p");
   readEl.innerText = blogData[id].body;
   blogsOutput.innerText = ""; 
@@ -144,6 +143,7 @@ function readBlog(id){
   backButtonEl.setHTML("&#8592 back");
   backButtonEl.classList.add("back-button"); 
   backButtonEl.onclick = function(){
+    toggleCreateButton(); 
     displayBlogs(); 
   }
 
