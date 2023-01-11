@@ -2,11 +2,18 @@ const blogsOutput = document.querySelector(".blog");
 
 // inputs 
 const newBlogOverlay = document.querySelector(".create-new-blog-overlay"); 
+const blogTitleInput = document.querySelector(".new-blog-title"); 
+const blogAuthorInput = document.querySelector(".new-blog-author");
+const blogBodyInput = document.querySelector(".new-blog-body"); 
 
 // buttons 
 const createBlogButton = document.querySelector(".create-new-blog-button"); 
 const overlayCloseButton = document.querySelector(".overlay-close-button"); 
 const newBlogSubmitButton = document.querySelector(".new-blog-submit-button"); 
+
+//helpers 
+let newBlog = false; // This determines whether a blog is brand new or edited 
+let blogToEdit; 
 
 let blogData = [
   {
@@ -50,10 +57,20 @@ let blogData = [
   }
 ]
 
+/*
+
+===========
+  Display  
+===========
+
+*/
+
 function createBlog(object){
+
   const blogEl = document.createElement("div"); 
   blogEl.classList.add("blog-preview"); 
-
+  blogEl.setAttribute("id", object.id); 
+  
   const titleEl = document.createElement("h2"); 
   titleEl.innerText = object.title; 
   titleEl.classList.add("blog-title"); 
@@ -62,72 +79,177 @@ function createBlog(object){
   authorEl.innerText = object.author; 
   authorEl.classList.add("blog-author"); 
 
+  const readButtonEl = document.createElement("button"); 
+  readButtonEl.innerText = "read";
+  readButtonEl.classList.add("read-button"); 
+  readButtonEl.onclick = function(e){
+    readBlog(e.target.parentElement.id); 
+  }
+
   const editButtonEl = document.createElement("button");
   editButtonEl.innerText = "edit"; 
   editButtonEl.classList.add("blog-edit-button"); 
+  editButtonEl.onclick = e => {
+    newBlog = false; 
+    editBlogPost(e.target.parentElement.id)
+  }
 
   const deleteButtonEl = document.createElement("button");
   deleteButtonEl.innerText = "delete"; 
   deleteButtonEl.classList.add("blog-delete-button"); 
-  deleteButtonEl.setAttribute("id", object.id); 
   deleteButtonEl.onclick = function(e){
-    deleteBlogData(e.target.id); 
+    deleteBlogData(e.target.parentElement.id); 
   }
 
   blogEl.appendChild(titleEl);
   blogEl.appendChild(authorEl);  
+  blogEl.appendChild(readButtonEl); 
   blogEl.appendChild(editButtonEl);
   blogEl.appendChild(deleteButtonEl);  
   blogsOutput.appendChild(blogEl); 
-}
-
-function displayBlogs(){
-  clearBlogOutput(); 
-  blogData.map(blog => createBlog(blog)); 
-}
-
-function updateBlogData(data){
-  blogData = [
-    ...blogData, 
-    data
-  ]; 
-}
-
-function deleteBlogData(id){
-  delete blogData[id]; 
-  displayBlogs(); 
 }
 
 function clearBlogOutput(){
   blogsOutput.innerText = ""; 
 }
 
-function createNewBlog(){
-  const blogTitle = document.querySelector(".new-blog-title").value;
-  const blogAuthor = document.querySelector(".new-blog-author").value; 
-  const blogBody = document.querySelector(".new-blog-body").value; 
-  const blogId = blogData.length; 
+function clearBlogForm(){
+  blogTitleInput.value = ""; 
+  blogAuthorInput.value = ""; 
+  blogBodyInput.value = ""; 
+}
+
+function displayBlogs(){
+  clearBlogOutput(); 
+  toggleCreateButton(); 
+  blogData.map(blog => createBlog(blog)); 
+}
+
+function toggleOverlay(){
+  newBlogOverlay.classList.toggle("hidden"); 
+}
+
+function toggleCreateButton(){
+  createBlogButton.classList.toggle("hidden"); 
+}
+
+function readBlog(id){
+  toggleCreateButton(); 
+  
+  const readEl = document.createElement("p");
+  readEl.innerText = blogData[id].body;
+  blogsOutput.innerText = ""; 
+
+  const backButtonEl = document.createElement("button");
+  backButtonEl.setHTML("&#8592 back");
+  backButtonEl.classList.add("back-button"); 
+  backButtonEl.onclick = function(){
+    displayBlogs(); 
+  }
+
+  blogsOutput.appendChild(readEl); 
+  blogsOutput.appendChild(backButtonEl); 
+}
+
+/* 
+
+=================
+  Data Handling 
+=================
+
+*/ 
+
+function resetBlogIds(){
+  let helper = 0; 
+  for(let i = 0; i < blogData.length; i++){
+    blogData[i].id = helper; 
+    helper++
+  }
+}
+
+function deleteBlogData(id){
+  blogData.splice(id, 1); 
+  displayBlogs();
+  resetBlogIds(); 
+}
+
+function editBlogPost(id){
+  blogToEdit = id; 
+  blogTitleInput.value = blogData[id].title; 
+  blogAuthorInput.value = blogData[id].author;
+  blogBodyInput.value = blogData[id].body; 
+
+  toggleOverlay()
+}
+
+function editBlogData(id){
+  const blogTitle = blogTitleInput.value;
+  const blogAuthor = blogAuthorInput.value; 
+  const blogBody = blogBodyInput.value; 
 
   const blogEl = {
-    id: blogId, 
+    title: blogTitle, 
+    author: blogAuthor,
+    body: blogBody 
+  };
+
+  blogData[id] = blogEl; 
+  resetBlogIds(); 
+  clearBlogOutput();
+  displayBlogs(); 
+}
+
+function createNewBlog(){
+  const blogTitle = blogTitleInput.value;
+  const blogAuthor = blogAuthorInput.value; 
+  const blogBody = blogBodyInput.value; 
+
+  const blogEl = {
     title: blogTitle, 
     author: blogAuthor,
     body: blogBody 
   };
 
   updateBlogData(blogEl); 
+  resetBlogIds(); 
   clearBlogOutput(); 
   displayBlogs(); 
 }
 
+function updateBlogData(data){
+  if(newBlog === true){
+    blogData = [
+      ...blogData, 
+      data
+    ]; 
+  } 
+}
+
+/*
+
+================
+  Program Ops
+================
+
+*/
+
 displayBlogs(); 
 
 createBlogButton.addEventListener("click", () => {
-  newBlogOverlay.classList.toggle("hidden"); 
+  clearBlogForm(); 
+  newBlog = true; 
+  toggleOverlay()
 });
 
 overlayCloseButton.addEventListener("click", () => {
-  newBlogOverlay.classList.toggle("hidden"); 
+  toggleOverlay()
 });
 
-newBlogSubmitButton.addEventListener("click", createNewBlog); 
+newBlogSubmitButton.addEventListener("click", () => {
+  if(newBlog === true){
+    createNewBlog(); 
+  } else {
+    editBlogData(blogToEdit); 
+  }
+  
+}); 

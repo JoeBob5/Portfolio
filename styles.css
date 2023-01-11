@@ -12,6 +12,10 @@ p, h1, h2{
   margin: 0; 
 }
 
+button{
+  cursor: pointer;
+}
+
 /* Navbar */ 
 
 .navbar{
@@ -53,6 +57,15 @@ p, h1, h2{
 
 .blog-title{
   margin-bottom: 10px; 
+}
+
+.read-button,
+.back-button{
+  background-color: transparent;
+  color: blue; 
+  border: none; 
+  cursor: pointer;
+  padding: 10px 0 0 0; 
 }
 
 .blog-delete-button{
@@ -109,7 +122,7 @@ p, h1, h2{
 }
 
 .hidden{
-  visibility: hidden;
+  display: none; 
 }
 
 .new-blog-body{
