@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Word Frequency</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Counts frequency of words in a text and returns to user">
+    <meta name="author" content="DD">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <form class="user-input-form">
+        <div class="input-container">
+          <textarea class="user-input" maxlength="2048" placeholder="insert text"></textarea>
+        </div>
+        <fieldset class="min-length-fieldset">
+          <label for="user-input-min-length">Enter min frequency: </label>
+          <input id="user-input-min-length" class="user-input-min-length" type="number" /> 
+        </fieldset> 
+        <fieldset class="parts-of-speech-inputs">
+          <div class="parts-of-speech-checkbox-and-label-container">
+            <input class="parts-of-speech-checkbox" id="articles" value="articles" type="checkbox" />
+            <label class="parts-of-speech-label" for="articles">articles</label>
+          </div>
+          <div class="parts-of-speech-checkbox-and-label-container">
+            <input class="parts-of-speech-checkbox" id="coordinating-conjunctions" value="coordinating-conjunctions" type="checkbox" />
+            <label class="parts-of-speech-label" for="coordinating-conjunctions">coordinating conjunctions</label>
+          </div>  
+          <div class="parts-of-speech-checkbox-and-label-container">
+            <input class="parts-of-speech-checkbox" id="pronouns" value="pronouns" type="checkbox" />
+            <label class="parts-of-speech-label" for="pronouns">pronouns</label>
+          </div>
+          <div class="parts-of-speech-checkbox-and-label-container">
+            <input class="parts-of-speech-checkbox" id="prepositions" value="prepositions" type="checkbox" />
+            <label class="parts-of-speech-label" for="prepositions">prepositions</label>
+          </div>
+          <div class="parts-of-speech-checkbox-and-label-container">
+            <input class="parts-of-speech-checkbox" id="linking-verbs" value="linking-verbs" type="checkbox" />
+            <label class="parts-of-speech-label" for="linking-verbs">linking verbs</label>
+          </div>
+        </fieldset>
+        <fieldset class="form-submit-fieldset">
+          <button class="translate-button">Translate</button>
+        </fieldset>
+      </form>
+      
+      <div class="result-overlay-container hidden">
+        <div class="result-overlay-border">
+          <div class="result-overlay"></div>
+        </div> 
+      </div>
+    </div>
+  </body>
+</html>

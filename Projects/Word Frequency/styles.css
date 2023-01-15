@@ -1,0 +1,150 @@
+/*
+===========
+  GENERAL
+===========
+*/
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0; 
+  width: 0; 
+  width: 100%; 
+  height: 100vh; 
+  overflow: hidden; 
+  background-color: rgb(210, 210, 210, .5);
+}
+
+p{
+  width: 200px; 
+  display: inline-block;
+  margin: 2px;
+}
+
+.app{
+  width: 100%; 
+  height: 100%; 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+========
+  FORM
+========
+*/
+
+.input-container{
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-input-form{ 
+  width: 400px; 
+  border: solid black 1.5px; 
+  background-color: white;
+}
+
+fieldset{
+  border-left: none; 
+  border-right: none; 
+}
+
+.user-input{
+  height: 400px; 
+  resize: none;
+}
+
+.parts-of-speech-inputs,
+.min-length-fieldset{
+  border-bottom: none;
+}
+
+.min-length-fieldset{
+  display: flex; 
+  justify-content: space-between;
+}
+
+.parts-of-speech-inputs{
+  display: flex; 
+  flex-direction: column;
+}
+
+.parts-of-speech-checkbox-and-label-container{
+  display: flex; 
+  align-items: center;
+}
+
+.parts-of-speech-label{
+  width: 100%; 
+}
+
+.form-submit-fieldset{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.translate-button{
+  width: 50%; 
+  cursor: pointer;
+}
+
+/*
+==========================
+  Results Output Overlay 
+==========================
+*/ 
+
+.result-overlay-container{
+  position: absolute; 
+  top: 0; 
+  bottom: 0; 
+  left: 0;
+  right: 0; 
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden{
+  display: none; 
+}
+
+.result-overlay-border{
+  width: 800px; 
+  height: 800px; 
+  overflow: scroll;
+  background-color: white;
+}
+
+.result-overlay{
+  width: 100%; 
+  background-color: white;
+  display: flex; 
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 20px; 
+}
+
+.result-element{
+  display: flex; 
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1); 
+}
+
+.result-element:hover{
+  background-color: rgba(0, 0, 0, 0.1); 
+}
+
+.result-element p{
+  width: 50%; 
+}
+
+.result-element-freq{
+  text-align: end;
+}
