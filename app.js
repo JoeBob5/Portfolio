@@ -1,3 +1,4 @@
+// outputs 
 const blogsOutput = document.querySelector(".blog"); 
 
 // inputs 
@@ -19,7 +20,7 @@ let blogData = [
   {
     id: 0,
     title: "Vestibulum Purus Augue",
-    author: "Theo Von",
+    author: "Not Plato",
     body: `Vestibulum purus augue, efficitur ut venenatis vel, luctus sed urna. 
     Quisque lacinia libero in justo mollis viverra. Maecenas sit amet congue nulla, 
     non mattis augue. Aliquam erat volutpat. Fusce eget consectetur diam. Praesent 
@@ -29,7 +30,7 @@ let blogData = [
   {
     id: 1,
     title: "Justo Lorem Aliquam Dui",
-    author: "Jacko Willink",
+    author: "Socraticus",
     body: `Class aptent taciti sociosqu ad litora torquent per conubia nostra, per 
     inceptos himenaeos. Phasellus tempus, leo sed viverra pulvinar, tellus dui 
     malesuada enim, at cursus nunc arcu nec est. Quisque porta faucibus sem eu dictum. 
@@ -46,7 +47,7 @@ let blogData = [
   {
     id: 2,
     title: "Nullam et Hendrerit Orci",
-    author: "Homer Simpson",
+    author: "Aristotis",
     body: `Vestibulum arcu nisi, malesuada vitae ornare non, varius nec neque. Aliquam 
     erat volutpat. Integer in massa pharetra ex convallis molestie at vel diam. Nullam 
     ac libero interdum, venenatis nisl eu, vulputate mi. Vestibulum sit amet luctus nisl. 
@@ -58,11 +59,9 @@ let blogData = [
 ]
 
 /*
-
 ===========
   Display  
 ===========
-
 */
 
 function createBlog(object){
@@ -152,11 +151,9 @@ function readBlog(id){
 }
 
 /* 
-
 =================
   Data Handling 
 =================
-
 */ 
 
 function resetBlogIds(){
@@ -169,8 +166,8 @@ function resetBlogIds(){
 
 function deleteBlogData(id){
   blogData.splice(id, 1); 
-  displayBlogs();
   resetBlogIds(); 
+  displayBlogs();
 }
 
 function editBlogPost(id){
@@ -226,11 +223,9 @@ function updateBlogData(data){
 }
 
 /*
-
-================
-  Program Ops
-================
-
+=================
+  Interactivity
+=================s
 */
 
 displayBlogs(); 
@@ -246,10 +241,10 @@ overlayCloseButton.addEventListener("click", () => {
 });
 
 newBlogSubmitButton.addEventListener("click", () => {
+  toggleOverlay(); 
   if(newBlog === true){
     createNewBlog(); 
   } else {
     editBlogData(blogToEdit); 
-  }
-  
+  }; 
 }); 
