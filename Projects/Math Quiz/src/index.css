@@ -1,0 +1,133 @@
+*{
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%; 
+}
+
+body{
+  margin: 0; 
+  padding: 0; 
+  width: 100%; 
+  height: 100vh; 
+  overflow: hidden;
+}
+
+/*
+========
+  Quiz  
+========
+*/
+
+.app{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; 
+  height: 100vh; 
+  background-color: white; 
+}
+
+.quiz-question-answer-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40vw; 
+  height: 60vh; 
+}
+
+.question-container{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(220, 220, 220, 0.7);
+
+  height: 20%; 
+  width: 100%; 
+  margin-bottom: 1px; 
+
+  font-size: 2.4rem; 
+}
+
+.answers-container{
+  display: grid; 
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+
+  height: 80%; 
+  width: 100%; 
+}
+
+.answer-button{
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
+  border: none; 
+
+  /* see AnswerButton.js for the background-color, which is rgba(220, 220, 220, 0.7)*/
+  font-size: 4.8rem; 
+}
+
+section{
+  width: 100%; 
+}
+
+.submit-button{
+  width: 100%;
+  height: 5vh; 
+  margin-top: 1px; 
+
+  background-color: rgba(220, 220, 220, 0.7);
+  border: none; 
+}
+
+.answer-button:hover,
+.submit-button:hover{
+  background-color: rgba(220, 220, 220, 0.4);
+}
+
+.answer-button:active,
+.submit-button:active{
+  background-color: rgba(220, 220, 220, 0.1);
+}
+
+
+
+/* 
+===========
+  RESULTS
+===========
+*/
+
+.results-overlay{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0; 
+  z-index: 999; 
+
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.results-container{
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  background-color: whitesmoke;
+  height: 40vh; 
+  width: 20vw; 
+}
+
+.results-container h3, p{
+  font-size: 1.6rem; 
+}
