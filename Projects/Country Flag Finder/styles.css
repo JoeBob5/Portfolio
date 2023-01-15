@@ -1,0 +1,122 @@
+/*
+===========
+  GENERAL
+===========
+*/
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%; 
+}
+
+body{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  margin: 0; 
+  padding: 0; 
+  height: 100vh; 
+  width: 100%;
+  overflow: hidden;
+  background: url("img/background.jpg");
+  background-size: cover;
+}
+
+.hidden{
+  display: none;
+}
+
+/*
+========
+  MAIN 
+========
+*/
+
+.app{
+  display: flex; 
+  flex-direction: column;
+  height: 50vh;
+  width: 50vh; 
+  background-color: transparent;
+}
+
+.input-container{
+  display: flex; 
+  flex-direction: column; 
+  width: 100%; 
+}
+
+.country-input{
+  height: 3.2rem; 
+  width: 100%;
+  font-size: 2rem; 
+  text-indent: .5rem;
+}
+
+.country-input::placeholder{
+  font-size: 1.6rem; 
+}
+
+.output-container{
+  width: 100%; 
+  background-color: rgba(224, 224, 224, 0.8);
+}
+
+.output-container img{
+  width: 100%; 
+}
+
+.output-container h3{
+  font-size: 2rem;
+  text-align: center;
+  margin: 6px auto; 
+}
+
+/*
+=================
+  Dropdown Menu
+================= 
+*/ 
+
+.country-name {
+  font-size: 2rem; 
+  padding-left: .5rem; 
+}
+
+.country-dropdown-menu{
+  overflow: scroll;
+  height: 50vh; 
+}
+
+.country-dropdown-menu::-webkit-scrollbar{
+  display: none;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+.country-dropdown-image{
+  width: 25px; 
+  height: 25px;
+}
+
+.country-dropdown-button{
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  height: 50px; 
+  width: 100%; 
+  padding: 0 10px 0 0; 
+  border:none; 
+  background-color: rgba(191, 191, 191, 0.8);
+  font-size: 2rem; 
+  text-indent: .5rem;
+  transition: .15s;
+  cursor: default; 
+}
+
+.country-dropdown-button:hover{
+  background-color: rgba(224, 224, 224);
+}
