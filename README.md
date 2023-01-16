@@ -14,7 +14,7 @@ the number of times each word appears in it. The program was built using HTML5, 
 vanilla JavaScript. Although this project uses several items from the front-end developer's 
 toolbox, string and array manipulation were the most important.   
 Code: https://github.com/JoeBob5/Portfolio/tree/master/Projects/Word%20Frequency   
-Demo: https://codepen.io/JoeBob5/full/ExpvNry. 
+Demo: https://codepen.io/JoeBob5/full/ExpvNry
 
 ### Blog 
 Blog is a web application that allows the user to create, read, update, and delete blog 
