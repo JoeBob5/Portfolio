@@ -29,7 +29,7 @@ problems. There are ten questions, and the user's score is displayed at the end.
 to add levels of difficulty in the future. I built this program to showcase my ability 
 to use React.    
 Code: https://github.com/JoeBob5/Portfolio/tree/master/Projects/Math%20Quiz   
-Demo: UNDER CONSTRUCTION 
+Demo: https://scrimba.com/scrim/cMDZnJHr
 
 ### Country Flag Finder 
 Country Flag Finder is a web application that allows the user to search for a country's 
